@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Al3ab</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: "Cairo", sans-serif;
+            background-color: #f9de47;
+        }
+
+        .container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .player {
+            text-align: center;
+        }
+
+        /* ✅ تصميم جديد للأزرار مع الـ Counter */
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #5C330B;
+            border-radius: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+        }
+
+        .controls button {
+            font-size: 24px;
+            border: none;
+            background: none;
+            color: #5C330B;
+            cursor: pointer;
+            padding: 5px 15px;
+            font-weight: bold;
+        }
+
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5C330B;
+            margin: 0 15px;
+        }
+
+        #celebration {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: yellow;
+            padding: 20px;
+            font-size: 24px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+
+        .b2z {
+
+            background-color: #5C330B;
+            border-radius: 10px;
+            font-weight: bold;
+            padding: 5px;
+            color: #f9de47;
+            margin-top: 35px;
+            font-size: 24px;
+
+        }
+
+        .in {
+
+            border-radius: 10px;
+            background-color: #f9de47;
+            margin-bottom: 35px;
+            font-size: 24px;
+            border: 2px solid #5C330B;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="celebration"></div>
+    <div class="caz">
+        <img src="https://casinoal3ab.com/cdn/shop/files/cropped-LOGO.png?v=1714613165&width=300" alt="Casino Al3ab">
+    </div>
+    <br>
+
+    <div class="container">
+        <div class="player">
+            <label></label>
+            <input type="text" id="name1" class="in" placeholder="اسم الحلو">
+            <div class="controls">
+                <button onclick="changeScore(1, -1)">−</button>
+                <span class="score" id="score1">0</span>
+                <button onclick="changeScore(1, 1)">+</button>
+            </div>
+            <button class="b2z" onclick="resetToZero(1)">رجعهولي للصفر</button>
+        </div>
+
+        <div class="player">
+            <label></label>
+            <input type="text" id="name2" class="in" placeholder="اسم الحلو التاني">
+            <div class="controls">
+                <button onclick="changeScore(2, -1)">−</button>
+                <span class="score" id="score2">0</span>
+                <button onclick="changeScore(2, 1)">+</button>
+            </div>
+            <button class="b2z" onclick="resetToZero(2)">رجعهولي للصفر</button>
+        </div>
+
+        <div class="player">
+            <label></label>
+            <input type="text" id="name3" class="in" placeholder="اسم الحلو التالت">
+            <div class="controls">
+                <button onclick="changeScore(3, -1)">−</button>
+                <span class="score" id="score3">0</span>
+                <button onclick="changeScore(3, 1)">+</button>
+            </div>
+
+            <button class="b2z" onclick="resetToZero(3)">رجعهولي للصفر</button>
+        </div>
+    </div>
+
+    <script>
+        function changeScore(player, change) {
+            let scoreElement = document.getElementById(`score${player}`);
+            if (!scoreElement) return;
+
+            let currentScore = parseInt(scoreElement.innerText);
+            let newScore = currentScore + change;
+
+            if (newScore <= 10) {
+                scoreElement.innerText = newScore;
+                if (newScore === 10) {
+                    celebratePlayer(player);
+                }
+            }
+        }
+
+        function resetToZero(player) {
+            let scoreElement = document.getElementById(`score${player}`);
+            if (scoreElement) {
+                scoreElement.innerText = 0;
+            }
+        }
+
+        function celebratePlayer(player) {
+            let nameInput = document.getElementById(`name${player}`);
+            let playerName = nameInput && nameInput.value ? nameInput.value : `Player ${player}`;
+            let celebrationElement = document.getElementById("celebration");
+
+            if (!celebrationElement) return;
+
+            celebrationElement.innerText = ` 🎉  مبروك مبروك يا حياه قلبي  مبروك يا${playerName} `;
+            celebrationElement.style.display = "block";
+
+            setTimeout(() => {
+                celebrationElement.style.display = "none";
+            }, 9000);
+        }
+
+    </script>
+
+</body>
+
+</html>
