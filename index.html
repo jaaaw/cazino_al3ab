@@ -12,88 +12,112 @@
     <title>Casino Al3ab</title>
 
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            font-family: "Cairo", sans-serif;
-            background-color: #f9de47;
-        }
+        
+           body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    font-family: "Cairo", sans-serif;
+    background-color: #f9de47;
+    margin: 0;
+    padding: 0;
+}
 
-        .container {
-            display: flex;
-            gap: 50px;
-        }
+.container {
+    display: flex;
+    flex-wrap: wrap; /* ✅ يضمن التفاف العناصر عند الحاجة */
+    gap: 20px; /* تقليل المسافات بين العناصر */
+    justify-content: center; /* ✅ يضمن التمركز في الشاشات الصغيرة */
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
 
-        .player {
-            text-align: center;
-        }
+.player {
+    text-align: center;
+    max-width: 300px; /* ✅ يضمن أن الكروت لن تكون أعرض من اللازم */
+    flex: 1; /* ✅ يجعل العناصر تتكيف حسب الحاجة */
+}
 
-        /* ✅ تصميم جديد للأزرار مع الـ Counter */
-        .controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #5C330B;
-            border-radius: 20px;
-            padding: 10px 20px;
-            background-color: transparent;
-        }
+/* ✅ تحسين تصميم الأزرار مع الـ Counter */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #5C330B;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+}
 
-        .controls button {
-            font-size: 24px;
-            border: none;
-            background: none;
-            color: #5C330B;
-            cursor: pointer;
-            padding: 5px 15px;
-            font-weight: bold;
-        }
+.controls button {
+    font-size: 24px;
+    border: none;
+    background: none;
+    color: #5C330B;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-weight: bold;
+}
 
-        .score {
-            font-size: 24px;
-            font-weight: bold;
-            color: #5C330B;
-            margin: 0 15px;
-        }
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #5C330B;
+    margin: 0 15px;
+}
 
-        #celebration {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: yellow;
-            padding: 20px;
-            font-size: 24px;
-            border: 2px solid black;
-            border-radius: 10px;
-        }
+#celebration {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: yellow;
+    padding: 20px;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
 
+/* ✅ تحسين تصميم الأزرار */
+.b2z {
+    background-color: #5C330B;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    color: #f9de47;
+    margin-top: 35px;
+    font-size: 24px;
+}
 
-        .b2z {
+.in {
+    border-radius: 10px;
+    background-color: #f9de47;
+    margin-bottom: 35px;
+    font-size: 24px;
+    border: 2px solid #5C330B;
+}
 
-            background-color: #5C330B;
-            border-radius: 10px;
-            font-weight: bold;
-            padding: 5px;
-            color: #f9de47;
-            margin-top: 35px;
-            font-size: 24px;
+/* ✅ تحسين توافق التصميم مع الشاشات الصغيرة */
+@media (max-width: 600px) {
+    .controls button, .score, .b2z, .in {
+        font-size: 18px; /* ✅ تصغير النصوص */
+        padding: 5px 10px;
+    }
 
-        }
+    .container {
+        flex-direction: column; /* ✅ تغيير التخطيط إلى عمودي على الشاشات الصغيرة */
+        gap: 10px;
+    }
 
-        .in {
+    .b2z {
+        margin-top: 20px;
+    }
+}
 
-            border-radius: 10px;
-            background-color: #f9de47;
-            margin-bottom: 35px;
-            font-size: 24px;
-            border: 2px solid #5C330B;
-
-        }
     </style>
 </head>
 
