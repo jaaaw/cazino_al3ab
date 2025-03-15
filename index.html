@@ -14,7 +14,7 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            font-family: 'ArcadeClassic', sans-serif;
+            font-family: 'ArcadeClassic', 'IBM Plex Sans', sans-serif;
             background-color: #f9de47;
             margin: 0;
             padding: 0;
@@ -78,14 +78,34 @@
         }
 
         .b2z {
-            background-color: #5C330B;
-            border-radius: 10px;
-            font-weight: bold;
-            padding: 5px;
-            color: #f9de47;
-            margin-top: 35px;
-            font-size: 24px;
-        }
+    background-color: #5C330B;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: #f9de47;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    box-shadow: 0px 6px 0px #2d1802; /* ظل سفلي ثابت */
+    position: relative;
+    margin-top: 20px;
+}
+
+.b2z:hover {
+    transform: scale(1.05);
+}
+
+.b2z:active {
+    transform: translateY(4px); /* تحريك الزر للأسفل */
+    box-shadow: 0px 2px 0px #2d1802; /* تقليل الظل لمحاكاة الضغط */
+}
+
+
+
+
+
+        
 
         .in {
             border-radius: 10px;
@@ -106,9 +126,7 @@
                 gap: 10px;
             }
 
-            .b2z {
-                margin-top: 20px;
-            }
+            
         }
 
         .logo {
@@ -162,7 +180,7 @@
 <body>
     <div id="celebration"></div>
     <div class="caz">
-        <img src="images/cazino.png" alt="Casino Al3ab" width="300" class="logo">
+        <img src="../images/logo.png" alt="Casino Al3ab" width="300" class="logo">
     </div>
     <br>
 
